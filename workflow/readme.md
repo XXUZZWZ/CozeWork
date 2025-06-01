@@ -31,4 +31,23 @@
 ## 节点排布规则
   1.节点之间不能成环，否则会报错。
   2.每个节点必须的可连接出一定要连接，否则少连一个点都会报错。
-  
+## 代码节点的代码怎么写？
+  1.他有一个写好的例子，我们在它写好的函数里就行
+  通过parms.外部变量名来获取外部变量的值，通过ret.变量名来输出变量的值。
+  注意不能返回number和boolean类型。
+  ~~~js
+  // 在这里，您可以通过 ‘params’  获取节点中的输入变量，并通过 'ret' 输出结果
+// 'params' 和 'ret' 已经被正确地注入到环境中
+// 下面是一个示例，获取节点输入中参数名为‘input’的值：
+// const input = params.input; 
+// 下面是一个示例，输出一个包含多种数据类型的 'ret' 对象：
+// const ret = { "name": ‘小明’, "hobbies": [“看书”, “旅游”] };
+
+async function main({ params }: Args): Promise<Output> {
+   
+    const ret = params.priceAndtype.split("\\").map(n => 
+        ['[', '{', '\\'].includes(n) ? ' ' : n
+      ).join('');
+    return ret;
+}
+~~~
